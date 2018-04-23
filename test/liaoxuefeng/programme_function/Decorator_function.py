@@ -22,6 +22,7 @@ wrapper()函数的参数定义是(*args, **kw)，因此，wrapper()函数可以�
 def log(func):
     def wrapper():
         print('call %s():' % func.__name__)
+
     return wrapper
 
 
@@ -30,11 +31,13 @@ def log(func):
 
 把@log放到now()函数的定义处，相当于执行了语句：now = log(now)
 '''
+
+
 @log
 def nows():
     print("11111")
 
-# 调用nows()函数，不仅会运行nows()函数本身，还会在运行nows()函数前打印一行日志：
-a=nows()
-print(a)
 
+# 调用nows()函数，不仅会运行nows()函数本身，还会在运行nows()函数前打印一行日志：
+a = nows()
+print(a)
